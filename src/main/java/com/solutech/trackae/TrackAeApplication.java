@@ -1,5 +1,10 @@
 package com.solutech.trackae;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -13,7 +18,7 @@ public class TrackAeApplication extends SpringBootServletInitializer {
         return application.sources(TrackAeApplication.class);
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(TrackAeApplication.class, args);
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        SpringApplication.run(TrackAeApplication.class, args);        
     }
 }

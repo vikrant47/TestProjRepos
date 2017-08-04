@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class IndexController {
     private static Logger logger = Logger.getLogger(IndexController.class.getName());
-    /*@RequestMapping("/")
+    @RequestMapping("/")
     public String helloWorld() {
         logger.info("Recieved Request");
         return "index";
-    }*/
+    }
 }

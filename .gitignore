@@ -22,3 +22,14 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/src/main/resources/static/bower_components/jvectormap/
+/src/main/resources/static/js/pages/
+/src/main/resources/static/img/credit/
+/src/main/resources/static/js/
+/src/main/resources/static/css/alt/
+/src/main/resources/static/css/skins/
+/src/main/resources/static/css/
+/src/main/resources/static/img/
+/src/main/resources/static/bower_components/
+/src/main/resources/public/
+/src/main/resources/static/
