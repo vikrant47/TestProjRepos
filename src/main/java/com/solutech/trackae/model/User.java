@@ -42,17 +42,13 @@ public class User {
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
-    @Transient
-    
+    @Transient    
     private String password;
+    
     @Column(name = "name")
-    @NotEmpty(message = "*Please provide your name")
-    
+    @NotEmpty(message = "*Please provide your name")    
     private String name;
-    @Column(name = "last_name")
-    @NotEmpty(message = "*Please provide your last name")
     
-    private String lastName;
     @Column(name = "active")    
     private int active;
     
@@ -90,14 +86,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
