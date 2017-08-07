@@ -1,19 +1,16 @@
 package com.solutech.trackae.model;
 
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import org.hibernate.annotations.GenericGenerator;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -24,36 +21,38 @@ import org.springframework.data.annotation.Transient;
 @Table(name = "user")
 public class User {
 
+    public User() {
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
+    }
+
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id")
     private String id;
-    
+
     @Column(name = "user_id", unique = true, nullable = false)
     @NotEmpty(message = "*Please provide a User Id")
     private String userId;
-    
+
     @Column(name = "email")
     @Email(message = "*Please provide a valid Email")
     @NotEmpty(message = "*Please provide an email")
     private String email;
-    
+
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
-    @Transient    
+    @Transient
     private String password;
-    
+
     @Column(name = "name")
-    @NotEmpty(message = "*Please provide your name")    
+    @NotEmpty(message = "*Please provide your name")
     private String name;
-    
-    @Column(name = "active")    
+
+    @Column(name = "active")
     private int active;
-    
+
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "id"))
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
     public String getId() {

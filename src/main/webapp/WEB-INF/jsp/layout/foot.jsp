@@ -1,17 +1,24 @@
-<!-- jQuery 3 -->
+<!-- Bootstrap and necessary plugins -->
 <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
+<script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>
 <script src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/assets/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/assets/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/assets/js/demo.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.sidebar-menu').tree()
-    })
-</script>
+
+<!-- AngularJS -->
+<script src="/assets/bower_components/angular/angular.min.js"></script>
+
+<!-- AngularJS plugins -->
+<script src="/assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/assets/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="/assets/bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+<script src="/assets/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+
+<!-- AngularJS CoreUI App scripts -->
+
+<script src="/angular/app/app.js"></script>
+<script src="/angular/app/appServices.js"></script>
+<script src="/angular/app/routes.js"></script>
+
+<script src="/angular/app/demo/routes.js"></script>
+
+<script src="/angular/app/controllers.js"></script>
+<script src="/angular/app/directives.js"></script>

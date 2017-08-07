@@ -1,5 +1,6 @@
 package com.solutech.trackae.model;
 
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,12 +13,13 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "role")
 public class Role {
 
+    public Role() {
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
+    }
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "role_id")
+    @Column(name = "id")
     private String id;
-    
+
     @Column(name = "role")
     private String role;
 

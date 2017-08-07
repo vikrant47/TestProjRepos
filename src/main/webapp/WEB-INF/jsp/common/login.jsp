@@ -6,69 +6,61 @@
 <!DOCTYPE html>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <jsp:include page="../layout/head.jsp"/>
-          <!-- iCheck -->
-  <link rel="stylesheet" href="/assets/plugins/iCheck/square/blue.css">
     </head>
+    <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 
-    <body class="hold-transition register-page">
-        <div class="register-box">
-            <div class="register-logo">
-                <a href="../../index2.html"><b>Admin</b>LTE</a>
-            </div>
 
-            <div class="register-box-body">
-                <p class="login-box-msg">Register a new membership</p>
-
-                <form action="../../index.html" method="post">
-                    <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="Full name">
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="email" class="form-control" placeholder="Email">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Password">
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Retype password">
-                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <div class="checkbox icheck">
-                                <label>
-                                    <input type="checkbox"> I agree to the <a href="#">terms</a>
-                                </label>
+        <div class="app flex-row align-items-center ng-scope">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <div class="card-group mb-0">
+                            <div class="card p-4">
+                                <form action="/login"  method="post">
+                                    <div class="card-block">
+                                        <h1>Login</h1>
+                                        <p class="text-muted">Sign In to your account</p>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-addon"><i class="icon-user"></i>
+                                            </span>
+                                            <input name="email" type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                        <div class="input-group mb-4">
+                                            <span class="input-group-addon"><i class="icon-lock"></i>
+                                            </span>
+                                            <input name="password" type="password" class="form-control" placeholder="Password">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button type="submit" class="btn btn-primary px-4">Login</button>
+                                            </div>
+                                            <div class="col-6 text-right">
+                                                <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <c:if test="${param.error}">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </form>
                             </div>
+
                         </div>
-                        <!-- /.col -->
-                        <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-                        </div>
-                        <!-- /.col -->
                     </div>
-                </form>
-
-                <div class="social-auth-links text-center">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
-                        Facebook</a>
-                    <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-                        Google+</a>
                 </div>
-
-                <a href="login.html" class="text-center">I already have a membership</a>
             </div>
-            <!-- /.form-box -->
         </div>
-        <!-- /.register-box -->
-
-        <jsp:include page="../layout/foot.jsp"/>
+        <!-- Bootstrap and necessary plugins -->
+        <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>
+        <script src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
