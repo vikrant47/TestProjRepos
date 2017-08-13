@@ -3,7 +3,7 @@ app.service('AuthService', ['ApplicationService', '$rootScope', function (Applic
         var xthis = {
             currentUser: {},
             updateUserInfo: function (response) {
-                $rootScope.currentUser = this.currentUser = response.data.data;
+                $rootScope.currentUser = this.currentUser = response.data.modal;
             },
             init: function () {
                 return ApplicationService.request({

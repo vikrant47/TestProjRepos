@@ -46,7 +46,7 @@ public class UserController {
     @RequestMapping(value = {"/user/info"}, method = RequestMethod.GET)
     public RestResponse getUserInfo() {
         RestResponse restResponse = new RestResponse();
-        restResponse.data(userService.memCopy(sessionComponent.getUser()));
+        restResponse.modal(userService.memCopy(sessionComponent.getUser()));
         return (restResponse);
     }
 
@@ -62,7 +62,7 @@ public class UserController {
         } catch (Exception ex) {
             restResponse.failed().putMessage("exception", ex.toString()).errorType(ErrorType.EXCEPTION);
         }
-        restResponse.data(userService.memCopy(user)).operation(Operation.UPDATE);
+        restResponse.modal(userService.memCopy(user)).operation(Operation.UPDATE);
         return (restResponse);
     }
 
@@ -78,7 +78,7 @@ public class UserController {
                     .putMessage("content", "Password doesn't matched,Please try again")
                     .putMessage("title", "Info");
         }
-        restResponse.data(user).operation(Operation.UPDATE);
+        restResponse.modal(user).operation(Operation.UPDATE);
         return (restResponse);
     }
 }

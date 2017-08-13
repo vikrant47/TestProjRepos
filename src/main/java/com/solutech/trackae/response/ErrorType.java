@@ -11,6 +11,7 @@ package com.solutech.trackae.response;
  */
 public interface ErrorType {
 
+    public static String NONE = "none";
     public static String EXCEPTION = "exception";
     public static String INFO = "info";
     public static String NOT_FOUND = "not.found";

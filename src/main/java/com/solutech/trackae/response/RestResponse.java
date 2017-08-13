@@ -18,14 +18,14 @@ public class RestResponse {
 
     private HashMap<String, String> message = new HashMap<>();
     private boolean error;
-    private Object data;
+    private Object modal;
     private String operation;
     private String errorType;
 
     public RestResponse() {
         error = false;
         this.operation = Operation.CREATE;
-        this.errorType = ErrorType.INFO;
+        this.errorType = ErrorType.NONE;
     }
 
     public RestResponse succeed() {
@@ -48,8 +48,8 @@ public class RestResponse {
         return this;
     }
 
-    public RestResponse data(Object data) {
-        this.data = data;
+    public RestResponse modal(Object modal) {
+        this.modal = modal;
         return this;
     }
 
@@ -77,12 +77,12 @@ public class RestResponse {
         this.operation = operation;
     }
 
-    public Object getData() {
-        return data;
+    public Object getModal() {
+        return modal;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setModal(Object modal) {
+        this.modal = modal;
     }
 
     public RestResponse putMessage(String key, String value) {

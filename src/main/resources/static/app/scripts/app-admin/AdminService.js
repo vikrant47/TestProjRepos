@@ -1,7 +1,8 @@
-angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService',
-    function ($rootScope, ApplicationService) {
+angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService', 'AuthService',
+    function ($rootScope, ApplicationService, AuthService) {
         var xthis = {
             roles: [],
+            users: [],
             getRoles: function () {
                 return this.roles;
             },
@@ -11,7 +12,7 @@ angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService
                         method: 'get',
                         url: '/appAdmin/roles/all'
                     }).then(function (response) {
-                        angular.merge(xthis.roles,response.data.data);
+                        angular.merge(xthis.roles, response.data.modal);
                     });
                 }
 
@@ -19,7 +20,7 @@ angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService
             addUser: function (user) {
                 return ApplicationService.request({
                     method: 'post',
-                    url: '/admin/user/add',
+                    url: '/appAdmin/user/add',
                     data: user,
                 }).then(function (response) {
 
@@ -28,10 +29,21 @@ angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService
             updateUser: function (user) {
                 return ApplicationService.request({
                     method: 'post',
-                    url: '/admin/user/update',
-                    params: user,
+                    url: '/appAdmin/user/update',
+                    data: user,
                 }).then(function (response) {
 
+                });
+            },
+            getAllUsers: function () {
+                return this.users;
+            },
+            loadAllUsers: function () {
+                return ApplicationService.request({
+                    method: 'get',
+                    url: '/appAdmin/user/all'
+                }).then(function (response) {
+                       angular.merge(xthis.users,response.data.modal);
                 });
             },
         };

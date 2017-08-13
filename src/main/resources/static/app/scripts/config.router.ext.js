@@ -34,13 +34,22 @@ angular.module('app').config(
                                 title: 'Admin'
                             },
                             url: '/admin',
-                            resolve: $stateProvider.load(['ui.select','/app/scripts/app-admin/AdminService.js', '/app/scripts/app-admin/AdminController.js'])
-                        }).state('app.admin.addUser', {
-                    templateUrl: '/app/scripts/app-admin/create-user.html',
-                    controller: 'AdminController',
-                    data: {
-                        title: 'Add User'
-                    },
-                    url: '/createUser'
-                })
+                            resolve: $stateProvider.load(['ui.select', '/app/scripts/app-admin/AdminService.js', '/app/scripts/app-admin/AdminController.js'])
+                        })
+                        .state('app.admin.addUser', {
+                            templateUrl: '/app/scripts/app-admin/create-user.html',
+                            controller: 'AdminController',
+                            data: {
+                                title: 'Add User'
+                            },
+                            url: '/createUser'
+                        })
+                        .state('app.admin.manageuser', {
+                            templateUrl: '/app/scripts/app-admin/manage-user.html',
+                            controller: 'AdminController',
+                            data: {
+                                title: 'Manage Users'
+                            },
+                            url: '/manageUsers'
+                        })
             }]);

@@ -9,4 +9,9 @@ angular.module('app').controller('AdminController',
                 $scope.updateUser = function () {
                     AdminService.updateUser($scope.user)
                 };
+                 $scope.users = AdminService.getAllUsers();
+                 $scope.loadAllUsers = function () {
+                    AdminService.loadAllUsers()
+                };
+                
             }]);
