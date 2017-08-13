@@ -29,9 +29,9 @@ public class User {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "user_id", unique = true, nullable = false)
+    @Column(name = "emp_id", unique = true, nullable = false)
     @NotEmpty(message = "*Please provide a User Id")
-    private String userId;
+    private String empId;
 
     @Column(name = "email")
     @Email(message = "*Please provide a valid Email")
@@ -50,6 +50,8 @@ public class User {
 
     @Column(name = "active")
     private int active;
+    @Column(name = "phone")
+    private String phone;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -63,12 +65,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getEmpId() {
+        return empId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 
     public String getPassword() {
@@ -109,6 +111,14 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

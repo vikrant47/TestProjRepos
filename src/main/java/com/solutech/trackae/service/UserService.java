@@ -27,6 +27,12 @@ public class UserService {
         user.setActive(1);
         userRepository.save(user);
     }
+    public User memCopy(User user) {
+        User copy = new User();
+        BeanUtils.copyProperties(user, copy);
+        copy.setPassword("");
+        return copy;
+    }
 
 
 }

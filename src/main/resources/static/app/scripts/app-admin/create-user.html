@@ -1,0 +1,55 @@
+
+<div class="row">
+    <div class="col-sm-12">
+        <form name="form" class="form-validation" ng-submit="addUser()">
+            <div class="panel panel-default">
+                <div class="panel-heading bg-white">
+                    <span class="font-bold">Add User</span>
+                    <md-progress-circular 
+                        ng-show="showLoading" 
+                        style="top: 1px;position: absolute;display: inline-block;" 
+                        md-mode="indeterminate" md-diameter="20" 
+                        class="md-hue-2 md-default-theme animate-show animate-hide">
+
+                    </md-progress-circular>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Name <em class="text-muted"></em></label>
+                        <input type="text" class="form-control" ng-model="user.name" ng-pattern="/^[a-zA-Z0-9|\s]{2,}$/" required >
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" ng-model="user.email" required >
+                    </div>
+                    <div class="form-group">
+                        <label>Employee Id</label>
+                        <input type="text" class="form-control" ng-model="user.empId" required >
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" ng-model="user.phone" ng-pattern="/[0-9]{8,15}$/" required >
+                    </div>
+                    <div class="form-group">
+                        <label> Password <em class="text-muted"></em></label>
+                        <input type="text" class="form-control" ng-model="user.password" ng-pattern="/^[a-zA-Z0-9]{5,}$/" required >
+                    </div>
+                    <div class="form-group">
+                        <label> Roles </label>
+                        <ui-select multiple ng-model="user.roles" theme="bootstrap" title="Choose roles">
+                            <ui-select-match placeholder="Select roles...">{{$item.role}}</ui-select-match>
+                            <ui-select-choices repeat="role in roles | filter:$select.search">
+                                {{role.role}}
+                            </ui-select-choices>
+                        </ui-select>
+                        <pre>{{user}}</pre>
+                    </div>
+                </div>
+                <footer class="panel-footer text-right">
+                    <button type="submit" class="btn btn-info" ng-disabled="form.$invalid">Add</button>
+                </footer>
+            </div>
+        </form>
+
+    </div>
+</div>

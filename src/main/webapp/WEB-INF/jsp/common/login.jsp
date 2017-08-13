@@ -11,56 +11,42 @@
     <head>
         <jsp:include page="../layout/head.jsp"/>
     </head>
-    <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-
-
-        <div class="app flex-row align-items-center ng-scope">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-5">
-                        <div class="card-group mb-0">
-                            <div class="card p-4">
-                                <form action="/login"  method="post">
-                                    <div class="card-block">
-                                        <h1>Login</h1>
-                                        <p class="text-muted">Sign In to your account</p>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-addon"><i class="icon-user"></i>
-                                            </span>
-                                            <input name="email" type="email" class="form-control" placeholder="Email">
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <span class="input-group-addon"><i class="icon-lock"></i>
-                                            </span>
-                                            <input name="password" type="password" class="form-control" placeholder="Password">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <button type="submit" class="btn btn-primary px-4">Login</button>
-                                            </div>
-                                            <div class="col-6 text-right">
-                                                <button type="button" class="btn btn-link px-0">Forgot password?</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <c:if test="${param.error}">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
-                                            </div>
-                                        </div>
-                                    </c:if>
-                                </form>
+    <body ng-app="app" class="ng-scope">
+        <!-- uiView:  --><div class="app ng-scope" ui-view="" ng-controller="AppCtrl" style=""><div class="indigo bg-big ng-scope"><!-- uiView:  --><div ui-view="" class="fade-in-down smooth ng-scope">  <div class="center-block w-xxl w-auto-xs p-v-md ng-scope">
+                        <div class="p-lg panel md-whiteframe-z1 text-color m">
+                            <div class="m-b text-sm ng-binding">
+                                Sign in with your Materil Account
                             </div>
+                            <form action="/login" method = "post" name="form" class="ng-pristine ng-valid-email ng-invalid ng-invalid-required">
+                                <div class="md-form-group float-label">
+                                    <input type="email" class="md-input ng-pristine ng-valid-email ng-invalid ng-invalid-required ng-touched" name="email" required="" tabindex="0" aria-required="true" aria-invalid="true" style="">
+                                    <label>Email</label>
+                                </div>
+                                <div class="md-form-group float-label">
+                                    <input type="password" class="md-input ng-pristine ng-untouched ng-invalid ng-invalid-required" name="password" required="" tabindex="0" aria-required="true" aria-invalid="true">
+                                    <label>Password</label>
+                                </div>      
+                                <div class="m-b-md">        
+                                    <label class="md-check">
+                                        <input type="checkbox"><i class="indigo"></i> Keep me signed in
+                                    </label>
+                                </div>
+                                <button md-ink-ripple="" type="submit" class="md-btn md-raised pink btn-block p-h-md">Sign in<div class="md-ripple-container" style=""></div></button>
+                                    <c:if test="${param.error}">
+                                    <div class="m-b-md">
+                                        <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+                                    </div>
+                                </c:if>
+                            </form>
+                        </div>
 
+                        <div class="p-v-lg text-center">
+                            <div class="m-b"><button href="#forgotPsw" class="md-btn" href="#/access/forgot-password">Forgot password?</button></div>
+                            <div>Do not have an account? <button href="#requestAccount" class="md-btn" href="#/access/signup">Request for account</button></div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bootstrap and necessary plugins -->
-        <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/assets/bower_components/tether/dist/js/tether.min.js"></script>
-        <script src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                </div></div></div>
+
+        <div class="jvectormap-label"></div>
     </body>
 </html>

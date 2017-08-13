@@ -1,16 +1,18 @@
 <head>
+    <meta charset="utf-8" />
+    <title>Materil | Angular Material Design Admin Template</title>
+    <meta name="description" content="material, material design, angular material, app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="?ukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="stylesheet" href="/assets/libs/assets/animate.css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/libs/assets/font-awesome/css/font-awesome.css" type="text/css" />
 
-    <title>CoreUI - Open Source Bootstrap Admin Template</title>
+    <link rel="stylesheet" href="/assets/libs/angular/angular-loading-bar/build/loading-bar.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/libs/angular/angular-material/angular-material.css" type="text/css" />
 
-    <!-- Main styles for this application -->
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
 
+    <link rel="stylesheet" href="/assets/styles/material-design-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/styles/font.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/styles/app.css" type="text/css" />
 </head>
