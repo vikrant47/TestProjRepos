@@ -1,7 +1,7 @@
 angular.module('app').controller('AdminController',
         ['$scope', '$rootScope', 'AdminService',
             function ($scope, $rootScope, AdminService) {
-                $scope.roles = AdminService.getRoles();
+                $scope.roles = AdminService.getAllRoles();
                 $scope.user = {};
                 $scope.addUser = function () {
                     AdminService.addUser($scope.user)

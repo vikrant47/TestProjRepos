@@ -16,30 +16,30 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label>Name <em class="text-muted"></em></label>
-                        <input type="text" class="form-control" ng-model="user.name" ng-pattern="/^[a-zA-Z0-9|\s]{2,}$/" required >
+                        <input placeholder="Name" type="text" class="form-control" ng-model="user.name" ng-pattern="/^[a-zA-Z0-9|\s]{2,}$/" required >
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control" ng-model="user.email" required >
+                        <input  placeholder="xxxx@xxx.com" type="email" class="form-control" ng-model="user.email" required >
                     </div>
                     <div class="form-group">
                         <label>Employee Id</label>
-                        <input type="text" class="form-control" ng-model="user.empId" required >
+                        <input placeholder="Employee Id" type="text" class="form-control" ng-model="user.empId" required >
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" ng-model="user.phone" ng-pattern="/[0-9]{8,15}$/" required >
+                        <input placeholder="xxxxxxxxxx" type="text" class="form-control" ng-model="user.phone" ng-pattern="/[0-9]{8,15}$/" required >
                     </div>
                     <div class="form-group">
                         <label> Password <em class="text-muted"></em></label>
-                        <input type="text" class="form-control" ng-model="user.password" ng-pattern="/^[a-zA-Z0-9]{5,}$/" required >
+                        <input placeholder="*********" type="text" class="form-control" ng-model="user.password" ng-pattern="/^[a-zA-Z0-9]{5,}$/" required >
                     </div>
                     <div class="form-group">
                         <label> Roles </label>
                         <ui-select multiple ng-model="user.roles" theme="bootstrap" title="Choose roles">
-                            <ui-select-match placeholder="Select roles...">{{$item.role}}</ui-select-match>
+                            <ui-select-match placeholder="Select roles...">{{$item.roleName}}</ui-select-match>
                             <ui-select-choices repeat="role in roles | filter:$select.search">
-                                {{role.role}}
+                                {{role.roleName}}
                             </ui-select-choices>
                         </ui-select>
                         <pre>{{user}}</pre>

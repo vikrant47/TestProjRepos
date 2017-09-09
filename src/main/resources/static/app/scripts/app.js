@@ -64,4 +64,15 @@ angular.module('app').service('ApplicationService', ["$http", "$interpolate", "$
                 });
             }
         }
+    }]).factory('MessageInterceptor', [function () {
+        return {
+            response: function (res) {
+                if (res.data.flash) {
+                    console.log(res.data.flash);
+                }
+                return res;
+            }
+        };
+    }]).config(['$httpProvider', function ($httpProvider) {
+        $httpProvider.interceptors.push('MessageInterceptor');
     }]);

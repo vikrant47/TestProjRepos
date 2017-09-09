@@ -5,13 +5,16 @@
  */
 package com.solutech.trackae.controllers;
 
+import com.solutech.trackae.component.SessionComponent;
+import com.solutech.trackae.model.User;
 import com.solutech.trackae.repository.RoleRepository;
 import com.solutech.trackae.repository.UserRepository;
 import com.solutech.trackae.response.Operation;
 import com.solutech.trackae.response.RestResponse;
+import com.solutech.trackae.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,27 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/appAdmin")
 public class AdminController {
-    @Autowired
-    RoleRepository roleRepository;
-     @Autowired
-    UserRepository userRepository;
+
     
-    @RequestMapping(value = {"/roles/all"}, method = RequestMethod.GET)
-    public RestResponse getAllRoles() {
-        RestResponse restResponse = new RestResponse();
-        restResponse.modal(roleRepository.findAll());
-        return restResponse.operation(Operation.FETCH);
-    }
-    @RequestMapping(value = {"/user/add"}, method = RequestMethod.POST)
-    public RestResponse addUser() {
-        RestResponse restResponse = new RestResponse();
-        restResponse.modal(roleRepository.findAll());
-        return restResponse.operation(Operation.FETCH);
-    }
-     @RequestMapping(value = {"/user/all"}, method = RequestMethod.GET)
-     public RestResponse getAllUser() {
-            RestResponse restResponse = new RestResponse();
-            restResponse.modal(userRepository.findAll());
-            return restResponse.operation(Operation.FETCH);
-        }
+    
 }

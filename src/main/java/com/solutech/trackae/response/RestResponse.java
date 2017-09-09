@@ -5,27 +5,41 @@
  */
 package com.solutech.trackae.response;
 
-import com.solutech.trackae.utils.ReflectionUtils;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Map;
+import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
+import org.springframework.web.context.request.RequestAttributes;
 
 /**
  *
  * @author Office
  */
-public class RestResponse {
+public class RestResponse extends DefaultErrorAttributes {
 
     private HashMap<String, String> message = new HashMap<>();
     private boolean error;
     private Object modal;
     private String operation;
     private String errorType;
+    private String flash;
 
     public RestResponse() {
         error = false;
         this.operation = Operation.CREATE;
-        this.errorType = ErrorType.NONE;
+        this.errorType = ErrorType.INFO;
+    }
+
+    /*
+    Overriding default error response 
+     */
+    @Override
+    public Map<String, Object> getErrorAttributes(RequestAttributes requestAttributes, boolean includeStackTrace) {
+        Map<String, Object> errorAttributes = super.getErrorAttributes(requestAttributes, includeStackTrace);
+        errorAttributes.put("error", true);
+        errorAttributes.put("errorType", ErrorType.EXCEPTION);
+        //errorAttributes.put("exception",super.getError(requestAttributes));
+        errorAttributes.put("flash", "Sorry! Something went wrong, Please try again");        
+        return errorAttributes;
     }
 
     public RestResponse succeed() {
@@ -102,7 +116,21 @@ public class RestResponse {
     public void setErrorType(String errorType) {
         this.errorType = errorType;
     }
-    public static RestResponse inst(){
+
+    public static RestResponse inst() {
         return new RestResponse();
+    }
+
+    public String getFlash() {
+        return flash;
+    }
+
+    public void setFlash(String flash) {
+        this.flash = flash;
+    }
+
+    public RestResponse flash(String flash) {
+        this.flash = flash;
+        return this;
     }
 }

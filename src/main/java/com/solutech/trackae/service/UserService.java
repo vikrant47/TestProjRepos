@@ -18,8 +18,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void saveUser(User user) {

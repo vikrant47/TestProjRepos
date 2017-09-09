@@ -3,14 +3,14 @@ angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService
         var xthis = {
             roles: [],
             users: [],
-            getRoles: function () {
+            getAllRoles: function () {
                 return this.roles;
             },
             init: function () {
                 if (this.roles.length == 0) {
                     ApplicationService.request({
                         method: 'get',
-                        url: '/appAdmin/roles/all'
+                        url: '/roles/all'
                     }).then(function (response) {
                         angular.merge(xthis.roles, response.data.modal);
                     });
@@ -20,16 +20,16 @@ angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService
             addUser: function (user) {
                 return ApplicationService.request({
                     method: 'post',
-                    url: '/appAdmin/user/add',
+                    url: '/user/add',
                     data: user,
                 }).then(function (response) {
-
+                        
                 });
             },
             updateUser: function (user) {
                 return ApplicationService.request({
                     method: 'post',
-                    url: '/appAdmin/user/update',
+                    url: '/user/update',
                     data: user,
                 }).then(function (response) {
 
@@ -41,9 +41,9 @@ angular.module('app').service('AdminService', ['$rootScope', 'ApplicationService
             loadAllUsers: function () {
                 return ApplicationService.request({
                     method: 'get',
-                    url: '/appAdmin/user/all'
+                    url: '/user/all'
                 }).then(function (response) {
-                       angular.merge(xthis.users,response.data.modal);
+                    angular.merge(xthis.users, response.data.modal);
                 });
             },
         };

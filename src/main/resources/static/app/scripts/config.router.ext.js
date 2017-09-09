@@ -37,12 +37,12 @@ angular.module('app').config(
                             resolve: $stateProvider.load(['ui.select', '/app/scripts/app-admin/AdminService.js', '/app/scripts/app-admin/AdminController.js'])
                         })
                         .state('app.admin.addUser', {
-                            templateUrl: '/app/scripts/app-admin/create-user.html',
+                            templateUrl: '/app/scripts/app-admin/add-user.html',
                             controller: 'AdminController',
                             data: {
                                 title: 'Add User'
                             },
-                            url: '/createUser'
+                            url: '/addUser'
                         })
                         .state('app.admin.manageuser', {
                             templateUrl: '/app/scripts/app-admin/manage-user.html',
